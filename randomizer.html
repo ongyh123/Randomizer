@@ -86,6 +86,20 @@
         form.reset();
       }
 
+      // Pick an item from the list
+
+      function pickItem() {
+        // Create an Array from the element with "items" id and is in a li element
+        // Output = [<li>....</li>,<li.....</li>,....]
+        let items = Array.from(document.querySelectorAll('#items li'));
+
+        // Shuffle the items
+        shuffle(items);
+
+        // Display the first item
+        chosen.textContent = items[0].textContent;
+      }
+
       // Listen for submit events on the form
       form.addEventListener('submit', addItem);
     </script>
