@@ -22,6 +22,19 @@
 			let form = document.querySelector('#add-item');
 			let list = document.querySelector('#items');
 
+            // Add an item to the list
+			function addToList (item) {
+
+				// Create a list item
+				let li = document.createElement('li');
+				li.textContent = item;
+
+				// Add it to the list
+				list.append(li);
+
+			}
+
+			
 		</script>
 </body>
 </html>
