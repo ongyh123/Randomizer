@@ -54,6 +54,26 @@
         return array;
       }
 
+      // Show status message
+      function showStatus(item) {
+        // Create a div element as a container for the notification, add aria-libe attribute to the element
+        let notification = document.createElement('div');
+        notification.setAttribute('aria-live', 'polite');
+
+        // Inject it into the DOM
+        form.append(notification);
+
+        // Add text after it's in the UI
+        setTimeout(function () {
+          notification.textContent = `${item} was added to the list.`;
+        }, 1);
+
+        // Remove it after 3 seconds
+        setTimeout(function () {
+          notification.remove();
+        }, 3000);
+      }
+
       // Add an item to the list
       function addToList(item) {
         // Create a list item
@@ -101,26 +121,6 @@
 
         // Display the first item
         chosen.textContent = items[0].textContent;
-      }
-
-      // Show status message
-      function showStatus(item) {
-        // Create a div element as a container for the notification, add aria-libe attribute to the element
-        let notification = document.createElement('div');
-        notification.setAttribute('aria-live', 'polite');
-
-        // Inject it into the DOM
-        form.append(notification);
-
-        // Add text after it's in the UI
-        setTimeout(function () {
-          notification.textContent = `${item} was added to the list.`;
-        }, 1);
-
-        // Remove it after 3 seconds
-        setTimeout(function () {
-          notification.remove();
-        }, 3000);
       }
 
       // Listen for submit events on the form
