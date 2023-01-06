@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Randomize</h1>
 
-		<form id="add-item">
-			<label for="item">Add an item to the list...</label>
-			<input type="text" id="item" name="item">
-			<button>Add Item</button>
-		</form>
+    <form id="add-item">
+      <label for="item">Add an item to the list...</label>
+      <input type="text" id="item" name="item" />
+      <button>Add Item</button>
+    </form>
 
-		<ul id="items"></ul>
+    <ul id="items"></ul>
 
-        <script>
-			// Get the DOM elements
-			let form = document.querySelector('#add-item');
-			let list = document.querySelector('#items');
+    <script>
+      // Get the DOM elements
+      let form = document.querySelector('#add-item');
+      let list = document.querySelector('#items');
 
-            // Add an item to the list
-			function addToList (item) {
+      // Add an item to the list
+      function addToList(item) {
+        // Create a list item
+        let li = document.createElement('li');
+        li.textContent = item;
 
-				// Create a list item
-				let li = document.createElement('li');
-				li.textContent = item;
+        // Add it to the list
+        list.append(li);
+      }
 
-				// Add it to the list
-				list.append(li);
+      function addItem(event) {
+        // Stop the form from reloading the page
+        event.preventDefault();
 
-			}
+        // Get the item
+        let formData = new FormData(form);
 
-			
-		</script>
-</body>
+        // Get the value of the element with name attribute of 'item', value= what user key in
+        //'item' = name of input
+        // formData.get('name of input'), Output = the value of the input with the name in the ()
+        let item = formData.get('item');
+
+        // If there's no item, end
+        if (!item) return;
+
+        // Otherwise, add item to the list
+        addToList(item);
+
+        // Clear the form input after the function is performed
+        form.reset();
+      }
+
+      // Listen for submit events on the form
+      form.addEventListener('submit', addItem);
+    </script>
+  </body>
 </html>
