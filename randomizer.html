@@ -144,6 +144,25 @@
 				list.innerHTML = saved;
 			}
 
+      // Clear the list
+			function clearList () {
+        // remove the localStorage 'randomize' key
+				localStorage.removeItem('randomize');
+
+        // clear all HTML data inside the list item
+				list.innerHTML = '';
+
+        // after the list is deleted, the details collapse itself
+        // open = not collapse, hence remove the open attribute = collapse
+				let clearWrap = clear.closest('details');
+				clearWrap.removeAttribute('open');
+
+        // clear the data in the chosen div if any. 
+        chosen.innerHTML = '';
+			}
+
+			// Load saved list from localStorage
+			loadList();
       // Listen for submit events on the form
       form.addEventListener('submit', addItem);
       pick.addEventListener('click', pickItem);
