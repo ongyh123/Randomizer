@@ -134,6 +134,14 @@
         // Display the first item
         chosen.textContent = items[0].textContent;
       }
+
+      // To Display saved list from localStorage
+			function loadList () {
+				let saved = localStorage.getItem('randomize');
+				if (!saved) return;
+				list.innerHTML = saved;
+			}
+
       // Listen for submit events on the form
       form.addEventListener('submit', addItem);
       pick.addEventListener('click', pickItem);
