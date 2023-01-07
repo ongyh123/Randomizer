@@ -91,6 +91,12 @@
 
         // Show a status message
         showStatus(item);
+
+        // Save list to localStorage
+        // Randomize = key
+        // get an HTML string of the items inside the list element, and pass that in as value
+        // Save the copy of HTML as string to localStorage when a new item is loaded into the UI
+				localStorage.setItem('randomize', list.innerHTML);
       }
 
       function addItem(event) {
