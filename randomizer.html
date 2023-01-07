@@ -18,9 +18,9 @@
     <ul id="items"></ul>
 
     <details>
-        <summary>Clear the list...</summary>
-        <p>Are you sure? This can't be undone.</p>
-        <button id="clear">Yes, I'm sure</button>
+      <summary>Clear the list...</summary>
+      <p>Are you sure? This can't be undone.</p>
+      <button id="clear">Yes, I'm sure</button>
     </details>
 
     <button id="pick">Pick an Item</button>
@@ -96,7 +96,7 @@
         // Randomize = key
         // get an HTML string of the items inside the list element, and pass that in as value
         // Save the copy of HTML as string to localStorage when a new item is loaded into the UI
-				localStorage.setItem('randomize', list.innerHTML);
+        localStorage.setItem('randomize', list.innerHTML);
       }
 
       function addItem(event) {
@@ -134,7 +134,6 @@
         // Display the first item
         chosen.textContent = items[0].textContent;
       }
-
       // Listen for submit events on the form
       form.addEventListener('submit', addItem);
       pick.addEventListener('click', pickItem);
